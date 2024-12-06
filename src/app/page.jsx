@@ -3,7 +3,6 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState } from 'react';
 
-
 const TimelineItem = ({
   company,
   period,
@@ -12,16 +11,13 @@ const TimelineItem = ({
   position
 }) => {
   return (
-
     <div
-
       className={`
-        relative w-1/2 px-4 sm:px-10 
-        ${position === 'left' ? 'left-0' : 'left-1/2'}
+        relative sm:w-1/2 px-4 sm:px-10 
+        ${position === 'left' ? 'sm:left-0' : 'sm:left-1/2 '}
         opacity-0 animate-movedown 
         animation-delay-${Math.floor(Math.random() * 6)}
       `}
-
     >
       <Image
         src={image}
@@ -29,17 +25,19 @@ const TimelineItem = ({
         width={40}
         height={40}
         className={`
+          hidden md:block
           absolute top-8 z-10 rounded-full 
           ${position === 'left' ? '-right-5' : '-left-5'}
         `}
       />
 
-      <div className="relative bg-hour-of-code-tertiary p-5 rounded-md">
-        <h2 className="font-semibold text-lg">{company}</h2>
+      <div className="relative p-5 rounded-md bg-hour-of-code-tertiary">
+        <h2 className="text-lg font-semibold">{company}</h2>
         <small className="block mb-3 text-gray-600">{period}</small>
         <p className="text-sm">{description}</p>
         {position === 'left' ? (
           <div className="
+            hidden md:block
             absolute top-7 right-[-15px] z-1 
             border-t-[15px] border-b-[15px] 
             border-t-transparent border-b-transparent 
@@ -47,6 +45,7 @@ const TimelineItem = ({
           "></div>
         ) : (
           <div className="
+            hidden md:block
             absolute top-7 left-[-15px] z-1 
             border-t-[15px] border-b-[15px] 
             border-t-transparent border-b-transparent 
@@ -59,13 +58,11 @@ const TimelineItem = ({
 };
 
 export default function Home() {
-
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
-
 
   const faqItems = [
     {
@@ -92,11 +89,6 @@ export default function Home() {
       question: 'Is the usage of Flutter mandatory for MadHack 3.0 projects?',
       answer: 'No, it is not mandatory to use Flutter for your projects in MadHack 3.0. While we have Flutter sessions to help you, you are free to use other frameworks or technologies that best suit your project requirements.',
     },
-    {
-      question: 'Is the usage of Flutter mandatory for MadHack 3.0 projects?',
-      answer: 'No, it is not mandatory to use Flutter for your projects in MadHack 3.0. While we have Flutter sessions to help you, you are free to use other frameworks or technologies that best suit your project requirements.',
-    },
-
   ];
 
   const timelineData = [
@@ -145,54 +137,56 @@ export default function Home() {
   ];
 
   return (
-
     <>
       <Head>
-      <link 
-      href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' 
-      rel='stylesheet'
-      />
-
+        <link 
+          href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' 
+          rel='stylesheet'
+        />
       </Head>
-      <div className="my-9  bg-hour-of-code-secondary w-[50%] h-16 flex justify-center items-center rounded-r-3xl">
-        <h1 className="md:text-4xl text-xl ">Agenda for HOC 24</h1>
+      
+      <div className="my-9 bg-hour-of-code-secondary w-full md:w-[50%] h-16 flex justify-center items-center rounded-r-3xl">
+        <h1 className="text-xl md:text-4xl">Agenda for HOC 24</h1>
       </div>
-      <div className="relative max-w-[1200px] mx-auto my-24">
+      
+      <div className="relative max-w-[1200px] mx-auto my-12 md:my-24 px-4">
         {/* Vertical Line */}
         <div className="
+          hidden md:block
           absolute w-1.5 h-full bg-hour-of-code-secondary-dark
           left-1/2 -ml-0.5 z-[-1] 
           animate-moveline
         "></div>
 
         {/* Timeline Items */}
-        <div className="relative ">
+        <div className="relative">
           {timelineData.map((item, index) => (
             <TimelineItem
               key={index}
               {...item}
-
             />
           ))}
         </div>
       </div>
-      <div className="my-9 bg-hour-of-code-secondary w-[50%] h-16 flex justify-center items-center rounded-r-3xl">
-        <h1 className="md:text-4xl text-xl ">FAQ</h1>
+      
+      <div className="my-9 bg-hour-of-code-secondary w-full md:w-[50%] h-16 flex justify-center items-center rounded-r-3xl">
+        <h1 className="text-xl md:text-4xl">FAQ</h1>
       </div>
-      <div className="m-20">
-        <div className="space-y-4 max-w-4xl mx-auto">
+      
+      <div className="m-4 md:m-20">
+        <div className="max-w-4xl mx-auto space-y-4">
           {faqItems.map((item, index) => (
-            <div key={index} className=" border rounded-md overflow-hidden">
+            <div key={index} className="overflow-hidden border rounded-md">
               <button
-                className={` w-full text-left px-4 py-3 font-medium text-lg ${activeIndex === index ? 'bg-hour-of-code-secondary-dark text-white' : 'shadow-2xl text-gray-900'}`}
+                className={`w-full text-left px-4 py-3 font-medium text-lg ${activeIndex === index ? 'bg-hour-of-code-secondary-dark text-white' : 'shadow-2xl text-gray-900'}`}
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={activeIndex === index ? 'true' : 'false'}
               >
                 <span>{item.question}</span>
-                <i className={` bx ${ activeIndex === index ? 'bxs-chevron-up-circle' : 'bxs-chevron-down-circle'} text-xl `}></i>
+                <i className={`bx ${activeIndex === index ? 'bxs-chevron-up-circle' : 'bxs-chevron-down-circle'} text-xl`}></i>
               </button>
               <div
-                className={` px-4 overflow-hidden transition-[max-height]  ease-in-out ${activeIndex === index ? 'max-h-50' : 'max-h-0'}`}
+                className={`px-4 overflow-hidden transition-[max-height] ease-in-out ${activeIndex === index ? 'max-h-50' : 'max-h-0'}`}
               >
                 <p className="py-2 text-black">{item.answer}</p>
               </div>
