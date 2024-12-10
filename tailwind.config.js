@@ -26,7 +26,7 @@ module.exports = {
       },
       animation: {
         movedown: 'movedown 1s ease forwards',
-        moveline: 'moveline 3s linear forwards'
+        moveline: 'moveline 6s linear forwards'
       },
       keyframes: {
         movedown: {
