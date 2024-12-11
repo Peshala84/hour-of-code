@@ -114,28 +114,24 @@ export default function Home() {
 
   const faqItems = [
         {
-          question: 'What is MadHack 3.0?',
-          answer: 'MadHack 3.0 is a coding competition where enthusiasts come together to showcase their skills in mobile app development. It is a platform to learn, collaborate, and compete in creating innovative solutions for real-world challenges.',
+          question: 'What is ACM Hour of Code?',
+          answer: 'ACM Hour of Code is an interactive session designed to introduce participants to coding and its applications. This year’s event focuses on Python and AI.',
         },
         {
-          question: 'Who can participate in MadHack 3.0?',
-          answer: 'MadHack 3.0 is open to all undergraduate students! Whether you are a seasoned developer or just starting, we welcome participants of all skill levels and backgrounds.',
+          question: 'When and where will it be held?',
+          answer: 'The event will take place on 12th December, from 4 PM to 6 PM, at S104 Hall, UCSC.',
         },
         {
-          question: 'How can I register for MadHack 3.0?',
-          answer: 'To register, visit our website and navigate to the registration page. Fill in the required details for yourself and your team members (if applicable) to secure your spot.',
+          question: 'Who can participate in the event?',
+          answer: 'The event is open to all UCSC students, regardless of their coding experience.',
         },
         {
-          question: 'Do I need a team to participate?',
-          answer: 'Yes, for the Initial Round and the Final Hackathon, participants are required to form teams of three or four members each.',
+          question: 'How do I register for the event?',
+          answer: 'Registration links will be shared on our social media pages. Be sure to register before the deadline to secure your spot.',
         },
         {
-          question: "What if I'm a beginner in coding? Can I still participate?",
-          answer: 'Absolutely! MadHack 3.0 is designed for participants of all skill levels. It is a great opportunity for beginners to learn and for experienced coders to showcase their expertise.',
-        },
-        {
-          question: 'Is the usage of Flutter mandatory for MadHack 3.0 projects?',
-          answer: 'No, it is not mandatory to use Flutter for your projects in MadHack 3.0. While we have Flutter sessions to help you, you are free to use other frameworks or technologies that best suit your project requirements.',
+          question: "What should I bring to the session?",
+          answer: 'Participants are encouraged to bring a laptop to follow along with the coding exercises. Ensure your device is charged and has Python installed',
         },
       ];
 
